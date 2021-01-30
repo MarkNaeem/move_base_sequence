@@ -7,29 +7,29 @@ from actionlib_msgs.msg import GoalStatus
 from geometry_msgs.msg import PoseStamped, PoseArray, PolygonStamped
 from nav_msgs.msg import Path
 from std_msgs.msg import Bool, Empty
-from movebase_sequence.srv import *
+from move_base_sequence.srv import *
 
-class MoveBaseSeq():
+class move_base_sequence():
     def __init__(self):
-        rospy.init_node('movebase_sequence')
+        rospy.init_node('move_base_sequence')
         #changed this line to get_param every time so that any change in the parameter would be captured without needing to initialize a new object
-        #self._repeating  = rospy.get_param("/movebase_sequence/is_repeating",True)
-        self.poses_pub   = rospy.Publisher("/wayposes",PoseArray,queue_size=10)          
+        #self._repeating  = rospy.get_param("/move_base_sequence/is_repeating",True)
+        self.poses_pub   = rospy.Publisher("/move_base_sequence/wayposes",PoseArray,queue_size=10)          
         #self.poly_pub    = rospy.Publisher("/poly_path",PolygonStamped,queue_size=10)          
-        self.path_pub    = rospy.Publisher("/path",Path,queue_size=10)          
-        _ = rospy.Subscriber("/wayposes",PoseArray,self.set_poses)          
-        _ = rospy.Subscriber("/corner_pose",PoseStamped,self.add_pose)          
-        _ = rospy.Service('/movebase_sequence/get_state', get_state, self.get_state) 
-        _ = rospy.Service('/movebase_sequence/toggle_state', toggle_state, self.toggle_state) 
-        _ = rospy.Service('/movebase_sequence/set_state', set_state, self.set_state) 
-        _ = rospy.Service('/movebase_sequence/reset', reset, self.reset) 
-        #_ = rospy.Subscriber("/movebase_sequence/state",Bool,self.set_state)#to switch the sending of the sequnce on or off          
-        # = rospy.Subscriber("/movebase_sequence/reset",Empty,self.reset)#to reset the whole sequence          
+        self.path_pub    = rospy.Publisher("/move_base_sequence/path",Path,queue_size=10)          
+        _ = rospy.Subscriber("/move_base_sequence/wayposes",PoseArray,self.set_poses)          
+        _ = rospy.Subscriber("/move_base_sequence/corner_pose",PoseStamped,self.add_pose)          
+        _ = rospy.Service('/move_base_sequence/get_state', get_state, self.get_state) 
+        _ = rospy.Service('/move_base_sequence/toggle_state', toggle_state, self.toggle_state) 
+        _ = rospy.Service('/move_base_sequence/set_state', set_state, self.set_state) 
+        _ = rospy.Service('/move_base_sequence/reset', reset, self.reset) 
+        #_ = rospy.Subscriber("/move_base_sequence/state",Bool,self.set_state)#to switch the sending of the sequnce on or off          
+        # = rospy.Subscriber("/move_base_sequence/reset",Empty,self.reset)#to reset the whole sequence          
       
-        rospy.set_param("/movebase_sequence/abortion_behaviour","stop")
-        rospy.set_param("/movebase_sequence/is_repeating",True)
+        rospy.set_param("/move_base_sequence/abortion_behaviour","stop")
+        rospy.set_param("/move_base_sequence/is_repeating",True)
       
-        self.__state__ = True #indicates whether the seq. is running or stopped... edited by /movebase_seq_state topic, should be a service!
+        self.__state__ = True #indicates whether the seq. is running or stopped... edited by /move_base_seq_state topic, should be a service!
         self._i = 0 #how many goals in the list are done          
         self._sending = False #indicates whether there is a goal thats being served or not
         self._internal_call = False #this is to prevent infinite loop of calling self.add_pose() when adding poses through pose array
@@ -53,13 +53,13 @@ class MoveBaseSeq():
             rospy.logerr("Action server not available!")
             #rospy.signal_shutdown("Action server not available!")
             return
-        rospy.loginfo("Connected to move base server, moving the base "+ ("one way trip" if rospy.get_param("/movebase_sequence/is_repeating",True) == False else "in a repetitive way"))
+        rospy.loginfo("Connected to move base server, moving the base "+ ("one way trip" if rospy.get_param("/move_base_sequence/is_repeating",True) == False else "in a repetitive way"))
         rospy.loginfo("Waiting for goals..")
 
 
     def __del__(self):
        self.reset(resetRequest())
-       print("movebase_sequence ended successfully!")
+       print("move_base_sequence ended successfully!")
 
     def reset(self,request):
         try:
@@ -149,7 +149,7 @@ class MoveBaseSeq():
         if not self.__state__: 
              return  #state is off, do not send goals!, it won't get here if __state__ is false but as a safety
         elif self._i <= len(self.poses.poses)-1:
-          self.movebase_client()
+          self.move_base_client()
           return
         else:  return  # cool, no new goals :)
 
@@ -177,9 +177,9 @@ class MoveBaseSeq():
             self._set_next_goal()
 
         elif status == 4:
-            behav = rospy.get_param("/movebase_sequence/abortion_behaviour","stop")
+            behav = rospy.get_param("/move_base_sequence/abortion_behaviour","stop")
             if behav == "stop": self.__state__ = False
-            elif not (behav == "continue"): rospy.logwarn("Param /movebase_sequence/abortion_behaviour  is neither 'stop' nor 'continue'! continue is assumed.")
+            elif not (behav == "continue"): rospy.logwarn("Param /move_base_sequence/abortion_behaviour  is neither 'stop' nor 'continue'! continue is assumed.")
             rospy.logerr ("Goal pose "+str(self._i)+" aborted," +("stopping sequence execution," if behav=='stop' else "continuing with next goals, ")+ "check any errors!")
             self._set_next_goal()
 
@@ -194,7 +194,7 @@ class MoveBaseSeq():
         self._i+=1
         if self._i <= len(self.poses.poses)-1: pass
         elif self._i > len(self.poses.poses)-1:
-            if rospy.get_param("/movebase_sequence/is_repeating",True):
+            if rospy.get_param("/move_base_sequence/is_repeating",True):
                self._i = 0
                rospy.loginfo("reached the end of the sequence successfully, repeating it again!")
             else:
@@ -217,7 +217,7 @@ class MoveBaseSeq():
                 self.path_pub.publish(self.path)
 
     
-    def movebase_client(self):
+    def move_base_client(self):
         if  self._sending or not self.__state__: return
         else:
           self._sending = True #don't send as it has already sent a goal thats being served
@@ -232,8 +232,8 @@ class MoveBaseSeq():
 
 
 if __name__ == '__main__':
-    movebaseseq = MoveBaseSeq()
+    move_base_sequence = move_base_sequence()
     while not rospy.is_shutdown():
-      movebaseseq.check_newgoals()
+      move_base_sequence.check_newgoals()
       continue
 
