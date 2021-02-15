@@ -85,8 +85,14 @@ With this, every time you use the `2D nav goal` GUI tool on rviz, the topic publ
 + Publish the targeted pose directly without rviz on the topic `/move_base_sequence/corner_pose`.
 + Publish the whole targeted set of poses on the topic `/move_base_sequence/wayposes`.
 
+<p align="center">
+  <img width="600" height="338" src=tool.gif>
+</p>
+
+
 ## Examples
 #### Running move_base_sequence on turtlebot3
-
+Under construction
 #### Running move_base_sequence on robo_farm
+Under construction
 
