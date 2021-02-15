@@ -2,8 +2,8 @@
 Changelog for package move_base_sequence
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.1 (2021-02-15)
+------------------
 * added a gif to readme
 * edit2
 * edit
