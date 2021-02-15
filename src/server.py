@@ -236,4 +236,3 @@ if __name__ == '__main__':
     while not rospy.is_shutdown():
       move_base_sequence.check_newgoals()
       continue
-
