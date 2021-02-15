@@ -1,6 +1,6 @@
 # Move base sequence
 ## Overview
-This is a ROS package that uses a ROS Action server to manage sending multiple goals to the navigation stack (move base action server) on a robot in order to achieve them one after another. The package handles everything regarding the goals: recieving, storing, sending, error handling... etc. 
+This is a ROS package that uses a ROS Action server to manage sending multiple goals to the navigation stack (move base action server) on a robot in order to achieve them one after another. The package handles everything regarding the goals: receiving, storing, sending, error handling... etc. 
 
  
  ## Dependencies
@@ -29,10 +29,10 @@ It is recommended to run **[rosdep](http://wiki.ros.org/rosdep)** `rosdep instal
 
 ## Nodes, topics, services, parameters
 #### Nodes: 
-- ***move_base_sequence:*** the one that runs the actionlib server that handles everythig about the goals sequence handling.
+- ***move_base_sequence:*** the one that runs the actionlib server that handles everything about the goals sequence handling.
 
 #### topics:
-- ***wayposes:***  PoseArray, a visulaization topic that shows the regiestered goals. It can also be sued to pass precalculated set of goals all at once by publihsing on it.
+- ***wayposes:***  PoseArray, a visualization topic that shows the registered goals. It can also be sued to pass precalculated set of goals all at once by publishing on it.
 - ***path:*** Path, visualization topic that draws the path that connects goals together.
 - ***corner_pose:*** Pose, the topic that is used to append new goals to the goals sequence.
 
@@ -40,7 +40,7 @@ It is recommended to run **[rosdep](http://wiki.ros.org/rosdep)** `rosdep instal
 <sub>**note**:
  A robot using move base sequence can have two states:
  *paused:* paused state stops the move base server and stops the sequence server so the robot stays at its place.
- *operating:*  operating state means that the sequence server will be sending goals and waiting for move base response. In other words, the system will be fully functioning until something casues state to change to paused (e.g. a goal cancellation or abortion)
+ *operating:*  operating state means that the sequence server will be sending goals and waiting for move base response. In other words, the system will be fully functioning until something causes state to change to paused (e.g. a goal cancellation or abortion)
 </sub> 
 
 - ***toggle_state:*** toggles the robot state from paused to operating.
@@ -59,7 +59,7 @@ It is recommended to run **[rosdep](http://wiki.ros.org/rosdep)** `rosdep instal
 To use the move base sequence package, all you need is to have your move base action server running (aka setup the navigation stack on your robot). [Navigation stack]('http://wiki.ros.org/navigation') has great [tutorials]('http://wiki.ros.org/navigation/Tutorials') and a detailed explanation about the whole stack and how it works.
 
 #### Sequence server setup
-The server runs thorugh `move_base_sequence` node, which is initialized in `server.py`. 
+The server runs through `move_base_sequence` node, which is initialized in `server.py`. 
 
 **It can be called via:**
 + launch files:
