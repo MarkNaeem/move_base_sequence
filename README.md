@@ -16,8 +16,7 @@ This package was made on ROS Melodic. It is compatible with any ROS distribution
 Note that if you're using the binaries release as mentioned in the installing section, the missing dependencies will be installed automatically.
 
 A guide on how to get the ROS distro that's compatible with your system: 
-[Ubuntu install of ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)
-[Ubuntu install of ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu)
+[Ubuntu install of ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)<br> [Ubuntu install of ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu)
 
 
 ## Installing
