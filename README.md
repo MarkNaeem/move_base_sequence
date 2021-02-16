@@ -78,9 +78,9 @@ The server runs through `move_base_sequence` node, which is initialized in `serv
 
 To add goals to the sequence, there is three ways:
 + Change the topic of `2D nav goal` tool on rviz to `/move_base_sequence/corner_pose` as follows:
-1- Click on panels in the menus bar, a drop down menu will appear.
-2- From the menu, check `Tools properties` if not checked.
-3- A new window will show up, scroll down this menu unitl you get to `2D nav goal` and change its topic to `/move_base_sequence/corner_pose`.<br>
+1. Click on panels in the menus bar, a drop down menu will appear.
+2. From the menu, check `Tools properties` if not checked.
+3. A new window will show up, scroll down this menu unitl you get to `2D nav goal` and change its topic to `/move_base_sequence/corner_pose`.<br>
 With this, every time you use the `2D nav goal` GUI tool on rviz, the topic published will be `/move_base_sequence/corner_pose` not the default `/move_base_simple/goal`. The following GIF shows how to do the mentioned steps.
 + Publish the targeted pose directly without rviz on the topic `/move_base_sequence/corner_pose`.
 + Publish the whole targeted set of poses on the topic `/move_base_sequence/wayposes`.
