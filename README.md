@@ -19,7 +19,7 @@ A guide on how to get the ROS distro that's compatible with your system:<br> [Ub
 ## Installing
 ### ROS Distribution
 The package is released as binaries for ROS Kinetic/Melodic/Noetic:<br>
-`sudo apt-get install ros$ROS_DISTRO-move-base-sequence`
+`sudo apt-get install ros-$ROS_DISTRO-move-base-sequence`
 
 ### Build from source
 To install the package,clone this repo `git clone https://github.com/MarkNaeem/move_base_sequence.git` in your catkin workspace, which is usually `~/catkin_ws`, and build the package using `catkin_make --pkg move_base_sequence`, or by just using `catkin_make` to build the whole workspace.
