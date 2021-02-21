@@ -4,8 +4,6 @@ This is a ROS package that uses a ROS Action server to manage sending multiple g
 
  
  ## Dependencies
-This package was made on ROS Melodic. It is compatible with any ROS distribution that supports the following packages:
-
 - **move_base:**   `sudo apt-get install ros-$ROS_DISTRO-move-base`
     - move_base_msgs 
 - **actionlib:**   `sudo apt-get install ros-$ROS_DISTRO-actionlib`
@@ -15,12 +13,13 @@ This package was made on ROS Melodic. It is compatible with any ROS distribution
 
 Note that if you're using the binaries release as mentioned in the installing section, the missing dependencies will be installed automatically.
 
-A guide on how to get the ROS distro that's compatible with your system:<br>[Ubuntu install of ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)<br> [Ubuntu install of ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu)
+A guide on how to get the ROS distro that's compatible with your system:<br> [Ubuntu install of ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu)<br>[Ubuntu install of ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)<br> [Ubuntu install of ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu)
 
 
 ## Installing
 ### ROS Distribution
-The package is to be released in ROS Kinetic, Melodic, and Noetic distributions. ROS2 will be the next step.
+The package is released as binaries for ROS Kinetic/Melodic/Noetic:<br>
+`sudo apt-get install ros$ROS_DISTRO-move-base-sequence`
 
 ### Build from source
 To install the package,clone this repo `git clone https://github.com/MarkNaeem/move_base_sequence.git` in your catkin workspace, which is usually `~/catkin_ws`, and build the package using `catkin_make --pkg move_base_sequence`, or by just using `catkin_make` to build the whole workspace.
