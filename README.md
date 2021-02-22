@@ -92,9 +92,9 @@ With this, every time you use the `2D nav goal` GUI tool on rviz, the topic publ
 ## Examples
 #### Running move_base_sequence on turtlebot3
 <!-- blank line -->
-<figure class="video_container">
+<div class="iframe-container">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/afTX3Mg4qq4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</figure>
+</div>
 <!-- blank line -->
 
 #### Running move_base_sequence on robo_farm
