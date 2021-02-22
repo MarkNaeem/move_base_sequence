@@ -91,11 +91,8 @@ With this, every time you use the `2D nav goal` GUI tool on rviz, the topic publ
 
 ## Examples
 #### Running move_base_sequence on turtlebot3
-<!-- blank line -->
-<div class="iframe-container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/afTX3Mg4qq4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<!-- blank line -->
+since Github markdown does not support embedding of videos or the iframe tag in HTML, this video link was made by ["video to markdown"](https://video-to-markdown.netlify.app/)<br>
+[![Turtlebot3 move_base_sequence](https://res.cloudinary.com/marcomontalbano/image/upload/v1614019487/video_to_markdown/images/youtube--afTX3Mg4qq4-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=afTX3Mg4qq4 "Turtlebot3 move_base_sequence")
 
 #### Running move_base_sequence on robo_farm
 Under construction
