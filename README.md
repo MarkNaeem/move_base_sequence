@@ -48,7 +48,7 @@ It is recommended to run **[rosdep](http://wiki.ros.org/rosdep)** `rosdep instal
 - ***get_state:*** returns the current state of the server, either `True` (opetating), `False` (paused).
 
 #### Parameters
-- ***abortion_bahaviour:*** determines the behaviour of the robot should the move base server face any problems that causes goal abortion. Default is `'stop'` but it can be set to `'continue'` which will make the system ignore this goal and take the next one in the sequence. It takes `'continue'` and `'stop'` as strings.
+- ***abortion_bahaviour:*** determines the behaviour of the robot should the move base server face any problems that cause goal abortion. Default is `'stop'` but it can be set to `'continue'` which will make the system ignore this goal and take the next one in the sequence. It takes `'continue'` and `'stop'` as strings.
 - ***is_repeating:*** determines whether the robot should be looping on the goals in an infinite loop which is the default value and set to be `True`, or it should only achieve them once, delete them, and wait for new goals, which is set by `False`.
 
 
