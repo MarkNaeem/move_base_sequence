@@ -2,6 +2,7 @@
 ## Overview
 This is a ROS package that uses a ROS Action server to manage sending multiple goals to the navigation stack (move base action server) on a robot in order to achieve them one after another. The package handles everything regarding the goals: receiving, storing, sending, error handling... etc. 
 
+ROS Wiki Page: http://wiki.ros.org/move-base-sequence
  
  ## Dependencies
 - **move_base:**   `sudo apt-get install ros-$ROS_DISTRO-move-base`
