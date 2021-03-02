@@ -19,8 +19,11 @@ A guide on how to get the ROS distro that's compatible with your system:<br> [Ub
 
 ## Installing
 ### ROS Distribution
+##### ROS
 The package is released as binaries for ROS Kinetic/Melodic/Noetic:<br>
 `sudo apt-get install ros-$ROS_DISTRO-move-base-sequence`
+##### ROS2
+For ROS2, There is a more suitable controller in Nav2 itself. Please refer to: [Nav2 Waypoint Follower](https://github.com/ros-planning/navigation2/tree/main/nav2_waypoint_follower).
 
 ### Build from source
 To install the package,clone this repo `git clone https://github.com/MarkNaeem/move_base_sequence.git` in your catkin workspace, which is usually `~/catkin_ws`, and build the package using `catkin_make --pkg move_base_sequence`, or by just using `catkin_make` to build the whole workspace.
