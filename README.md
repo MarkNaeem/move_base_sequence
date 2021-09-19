@@ -98,6 +98,3 @@ With this, every time you use the `2D nav goal` GUI tool on rviz, the topic publ
 Since GithHb's markdown does not support embedding of videos or the iframe tag in HTML, this video link was made by ["video to markdown"](https://video-to-markdown.netlify.app/)<br>
 [![Turtlebot3 move_base_sequence](https://res.cloudinary.com/marcomontalbano/image/upload/v1614019487/video_to_markdown/images/youtube--afTX3Mg4qq4-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=afTX3Mg4qq4 "Turtlebot3 move_base_sequence")
 
-#### Running move_base_sequence on robo_farm
-Under construction
-
